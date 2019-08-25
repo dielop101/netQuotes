@@ -1,4 +1,6 @@
-﻿using LinqSpecsCore;
+﻿using DataAccess;
+using LinqSpecsCore;
+using Specification;
 using System;
 
 namespace netquotes
@@ -10,6 +12,25 @@ namespace netquotes
         static void Main(string[] args)
         {
             UseLinqSpecsCore();
+            UseSpecification();
+        }
+
+        private static void UseSpecification()
+        {
+            var spec1 = new Spanish();
+            var spec2 = new English();
+
+            var spanish = 0;
+            var english = 0;
+            foreach (var customer in _customerDao.ListOfCustomers)
+            {
+                if (spec1.IsSatisfiedBy(customer))
+                    spanish++;
+                else if (spec2.IsSatisfiedBy(customer))
+                    english++;
+            }
+
+            Console.WriteLine($"Total english = {english} and total spanish = {spanish}");
         }
 
         private static void UseLinqSpecsCore()

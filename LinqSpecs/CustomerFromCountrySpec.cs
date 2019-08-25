@@ -1,6 +1,7 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using DataAccess;
 using LinqSpecs.Core;
+using System;
+using System.Linq.Expressions;
 
 namespace LinqSpecsCore
 {

@@ -1,4 +1,4 @@
-﻿namespace LinqSpecsCore
+﻿namespace DataAccess
 {
     public class Customer
     {

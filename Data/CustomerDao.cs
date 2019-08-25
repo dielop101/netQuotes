@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LinqSpecsCore
+namespace DataAccess
 {
     public class CustomerDao
     {
-        private IEnumerable<Customer> _listOfCustomers = new List<Customer>()
+        public IEnumerable<Customer> ListOfCustomers = new List<Customer>()
             {
                 new Customer("Spain"),
                 new Customer("England"),
@@ -20,11 +20,11 @@ namespace LinqSpecsCore
 
         public IEnumerable<Customer> FindAll(Specification<Customer> specification)
         {
-            return _listOfCustomers.AsQueryable().Where(specification.ToExpression());
+            return ListOfCustomers.AsQueryable().Where(specification.ToExpression());
         }
         public int Count(Specification<Customer> specification)
         {
-            return _listOfCustomers.AsQueryable().Count(specification.ToExpression());
+            return ListOfCustomers.AsQueryable().Count(specification.ToExpression());
         }
 
     }
